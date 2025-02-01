@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Quieres ser mi San Valentín? 💖</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: #ffccd5; /* Fondo rosa claro */
+            font-family: 'Times New Roman', serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #ff1493;
+            font-size: 48px;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        .btn {
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 24px;
+            cursor: pointer;
+            border-radius: 10px;
+            margin: 10px;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #ff1493;
+        }
+        #response {
+            font-size: 40px;
+            color: #ff1493;
+            margin-top: 20px;
+            opacity: 0;
+            animation: fadeIn 1.5s forwards;
+        }
+        #gif-container {
+            margin-top: 20px;
+            opacity: 0;
+            animation: fadeIn 1.5s forwards 0.5s;
+        }
+        #no-response {
+            font-size: 30px;
+            color: #ff1493;
+            margin-top: 20px;
+            opacity: 0;
+            animation: fadeIn 1.5s forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        /* GIFs alrededor como fondo */
+        .background-gifs {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .background-gifs img {
+            position: absolute;
+            width: 100px; /* Tamaño del GIF */
+            height: auto;
+            animation: float 10s linear infinite;
+        }
+        .background-gifs img:nth-child(1) {
+            top: 10%;
+            left: 5%;
+            animation-delay: 0s;
+        }
+        .background-gifs img:nth-child(2) {
+            top: 20%;
+            left: 80%;
+            animation-delay: 2s;
+        }
+        .background-gifs img:nth-child(3) {
+            top: 50%;
+            left: 10%;
+            animation-delay: 4s;
+        }
+        .background-gifs img:nth-child(4) {
+            top: 70%;
+            left: 70%;
+            animation-delay: 6s;
+        }
+        .background-gifs img:nth-child(5) {
+            top: 30%;
+            left: 50%;
+            animation-delay: 8s;
+        }
+        .background-gifs img:nth-child(6) {
+            top: 80%;
+            left: 20%;
+            animation-delay: 10s;
+        }
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+            }
+            100% {
+                transform: translateY(0) rotate(360deg);
+            }
+        }
+    </style>
+    <script>
+        let noCount = 0;
+
+        function showResponse() {
+            let responseDiv = document.getElementById('response');
+            responseDiv.innerHTML = '😍 ¡Sabía que dirías que sí! 💕💏 😍';
+            responseDiv.style.opacity = '1';
+            
+            let gifContainer = document.getElementById('gif-container');
+            gifContainer.innerHTML = '<img src="https://i.pinimg.com/originals/24/bd/97/24bd97327e92a1a8f465986afa103efe.gif" width="300">';
+            gifContainer.style.opacity = '1';
+        }
+
+        function showNoResponse() {
+            noCount++;
+            let noResponseDiv = document.getElementById('no-response');
+            let gifContainer = document.getElementById('gif-container');
+
+            if (noCount === 1) {
+                noResponseDiv.innerHTML = 'Amooor, te estoy viendo 😘';
+                gifContainer.innerHTML = '<img src="https://i.pinimg.com/originals/8d/6a/0b/8d6a0b38df966b0ae3227d6aa5a5f401.gif" width="300">';
+            } else if (noCount === 2) {
+                noResponseDiv.innerHTML = 'Mi vidaaaa, sé que no quieres decir que no 😘';
+                gifContainer.innerHTML = '<img src="https://i.pinimg.com/originals/80/a6/9d/80a69d6c77fb17134300d19cc67b3ee4.gif" width="300">';
+            } else {
+                noResponseDiv.innerHTML = '¡No puedes decir que no! 😜';
+                gifContainer.innerHTML = '<img src="https://media1.tenor.com/m/Ue0mp-7n1K8AAAAd/consumed-by-hatred-kitten.gif" width="300">';
+            }
+
+            noResponseDiv.style.opacity = '1';
+            gifContainer.style.opacity = '1';
+        }
+    </script>
+</head>
+<body>
+    <!-- GIFs de fondo -->
+    <div class="background-gifs">
+        <img src="https://i.pinimg.com/originals/01/26/47/0126477001c49615c14e668da3df6879.gif" alt="Gif 1">
+        <img src="https://i.pinimg.com/originals/01/26/47/0126477001c49615c14e668da3df6879.gif" alt="Gif 2">
+        <img src="https://i.pinimg.com/originals/01/26/47/0126477001c49615c14e668da3df6879.gif" alt="Gif 3">
+        <img src="https://i.pinimg.com/originals/01/26/47/0126477001c49615c14e668da3df6879.gif" alt="Gif 4">
+        <img src="https://i.pinimg.com/originals/01/26/47/0126477001c49615c14e668da3df6879.gif" alt="Gif 5">
+        <img src="https://i.pinimg.com/originals/01/26/47/0126477001c49615c14e668da3df6879.gif" alt="Gif 6">
+        <img src="https://i.pinimg.com/originals/01/26/47/0126477001c49615c14e668da3df6879.gif" alt="Gif 7">
+        <img src="https://i.pinimg.com/originals/01/26/47/0126477001c49615c14e668da3df6879.gif" alt="Gif 8">
+        <img src="https://i.pinimg.com/originals/01/26/47/0126477001c49615c14e668da3df6879.gif" alt="Gif 9">
+        <img src="https://i.pinimg.com/originals/01/26/47/0126477001c49615c14e668da3df6879.gif" alt="Gif 10">
+        <img src="https://i.pinimg.com/originals/01/26/47/0126477001c49615c14e668da3df6879.gif" alt="Gif 11">
+        <img src="https://i.pinimg.com/originals/01/26/47/0126477001c49615c14e668da3df6879.gif" alt="Gif 12">
+        <img src="https://i.pinimg.com/originals/01/26/47/0126477001c49615c14e668da3df6879.gif" alt="Gif 13">
+        <img src="https://i.pinimg.com/originals/01/26/47/0126477001c49615c14e668da3df6879.gif" alt="Gif 14">
+    </div>
+
+    <!-- Contenido principal -->
+    <div class="container">
+        <h1>¿Quieres ser mi San Valentín? 💘</h1>
+        <div id="gif-container">
+            <img src="https://i.pinimg.com/originals/ed/69/31/ed6931bba91425579d67b6be8991a67e.gif" width="300">
+        </div>
+        <div class="buttons">
+            <button class="btn" onclick="showResponse()">Sí 😍</button>
+            <button class="btn" onclick="showNoResponse()">No 🙈</button>
+        </div>
+        <div id="response"></div>
+        <div id="no-response"></div>
+    </div>
+</body>
+</html>
